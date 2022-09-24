@@ -1,0 +1,7 @@
+bool FunWithCycles::palindrome(const std::string & s) {
+    unsigned length = s.size();
+    for (unsigned i = 0; i < length/2; i++)
+        if (s[i] != s[length-i-1])
+            return false;
+    return true;
+}
