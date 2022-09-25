@@ -1,0 +1,32 @@
+#include "funWithCycles.h"
+#include <iostream>
+#include <string>
+
+bool FunWithCycles::palindrome(const std::string & s) {
+    unsigned length = s.size();
+    for (unsigned i = 0; i < length/2; i++) {
+        if (s[i] != s[length - i - 1])
+            return false;
+    }
+    return true;
+}
+
+using namespace std;
+
+
+bool FunWithCycles::palindromeSentence(const std::string & s) {
+    int i,k;
+    std::string new_string = "";
+    for(i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            new_string += s[i];
+        }
+    }
+    for(k=0; k<new_string.size(); k++){
+        new_string[k] = tolower(new_string[k]);
+    }
+    if(palindrome(new_string) == true){
+        return true;
+    }
+    return false;
+}
